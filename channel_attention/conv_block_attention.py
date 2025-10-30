@@ -62,17 +62,3 @@ class ConvBlockAttention(nn.Module):
         if with_residual:
             return output + x
         return output
-
-
-class CBAM(nn.Module):
-    def __init__(self, channels, r):
-        super(CBAM, self).__init__()
-        self.channels = channels
-        self.r = r
-        self.sam = SAM(bias=False)
-        self.cam = CAM(channels=self.channels, r=self.r)
-
-    def forward(self, x):
-        output = self.cam(x)
-        output = self.sam(output)
-        return output + x
