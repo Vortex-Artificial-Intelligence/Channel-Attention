@@ -20,3 +20,5 @@ from .conv_block_attention import ConvBlockAttention
 from .efficient_channel_attention import EfficientChannelAttention
 
 from .local_attention import LocalAttention
+
+from .frequency_enhanced_channel_attention import FreqEnhancedAttention
