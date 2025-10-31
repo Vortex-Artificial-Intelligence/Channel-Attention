@@ -1,5 +1,6 @@
 __all__ = [
     "SEAttention",
+    "MultiSEAttention",
     "SpatialAttention",
     "ChannelAttention",
     "ConvBlockAttention",
@@ -9,7 +10,7 @@ __all__ = [
 
 __version__ = "0.0.1"
 
-from .squeeze_excitation import SEAttention
+from .squeeze_excitation import SEAttention, MultiSEAttention
 
 from .spatial_attention import SpatialAttention
 
