@@ -157,5 +157,6 @@ class TestAttention(unittest.TestCase):
             output = la_2d(x)
             self.assertEqual(output.shape, x.shape)
 
+
 if __name__ == "__main__":
     unittest.main()
