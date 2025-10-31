@@ -8,6 +8,7 @@ from channel_attention import (
     SpatialAttention,
     ChannelAttention,
     ConvBlockAttention,
+    EfficientChannelAttention,
 )
 
 
@@ -27,6 +28,8 @@ def generate_test_inputs(
 
 
 class TestAttention(unittest.TestCase):
+    """Unit tests for attention mechanism modules."""
+
     batch_size = [1, 4, 16]
     n_channels = 64
     seq_len = 128
@@ -103,6 +106,24 @@ class TestAttention(unittest.TestCase):
         cbam_2d = ConvBlockAttention(n_dims=2, n_channels=self.n_channels)
         for x in image_inputs:
             output = cbam_2d(x)
+            self.assertEqual(output.shape, x.shape)
+
+    def test_EfficientChannelAttention(self) -> None:
+        """Test EfficientChannelAttention module for both 1D and 2D inputs."""
+        time_series_inputs, image_inputs = generate_test_inputs(
+            self.batch_size, self.n_channels, self.seq_len, self.height, self.width
+        )
+
+        # Test EfficientChannelAttention for time series (1D)
+        eca_1d = EfficientChannelAttention(n_dims=1, kernel_size=3)
+        for x in time_series_inputs:
+            output = eca_1d(x)
+            self.assertEqual(output.shape, x.shape)
+
+        # Test EfficientChannelAttention for images (2D)
+        eca_2d = EfficientChannelAttention(n_dims=2, kernel_size=3)
+        for x in image_inputs:
+            output = eca_2d(x)
             self.assertEqual(output.shape, x.shape)
 
 
