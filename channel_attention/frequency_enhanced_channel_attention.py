@@ -1,18 +1,21 @@
-import torch.nn as nn
+from typing import Optional
+
 import numpy as np
 import torch
-#论文：FECAM: Frequency Enhanced Channel Attention Mechanism for Time Series Forecasting
-#论文地址：https://arxiv.org/abs/2212.01209
+from torch import nn
+from torch.nn import functional as F
+
+# 论文：FECAM: Frequency Enhanced Channel Attention Mechanism for Time Series Forecasting
+# 论文地址：https://arxiv.org/abs/2212.01209
 
 try:
-    from torch import irfft
-    from torch import rfft
+    from torch.fft import rfft, irfft
 except ImportError:
+
     def rfft(x, d):
         t = torch.fft.fft(x, dim=(-d))
         r = torch.stack((t.real, t.imag), -1)
         return r
-
 
     def irfft(x, d):
         t = torch.fft.ifft(torch.complex(x[:, :, 0], x[:, :, 1]), dim=(-d))
@@ -38,13 +41,13 @@ def dct(x, norm=None):
 
     Vc = rfft(v, 1)
 
-    k = - torch.arange(N, dtype=x.dtype, device=x.device)[None, :] * np.pi / (2 * N)
+    k = -torch.arange(N, dtype=x.dtype, device=x.device)[None, :] * np.pi / (2 * N)
     W_r = torch.cos(k)
     W_i = torch.sin(k)
 
     V = Vc[:, :, 0] * W_r - Vc[:, :, 1] * W_i
 
-    if norm == 'ortho':
+    if norm == "ortho":
         V[:, 0] /= np.sqrt(N) * 2
         V[:, 1:] /= np.sqrt(N / 2) * 2
 
@@ -54,18 +57,23 @@ def dct(x, norm=None):
 
 
 class FreqEnhancedAttention(nn.Module):
-    
-    def __init__(self, channel):
-        super(FreqEnhancedAttention, self).__init__()
+    def __init__(
+        self,
+        n_dims: int,
+        n_channels: int,
+        reduction: Optional[int] = 2,
+        dropout: Optional[float] = 0.1,
+    ) -> None:
+        super().__init__()
         self.fc = nn.Sequential(
-            nn.Linear(channel, channel * 2, bias=False),
-            nn.Dropout(p=0.1),
+            nn.Linear(n_channels, n_channels // reduction, bias=False),
+            nn.Dropout(p=dropout),
             nn.ReLU(inplace=True),
-            nn.Linear(channel * 2, channel, bias=False),
-            nn.Sigmoid()
+            nn.Linear(n_channels // reduction, n_channels, bias=False),
+            nn.Sigmoid(),
         )
 
-        self.dct_norm = nn.LayerNorm([96], eps=1e-6)  # for lstm on length-wise
+        self.dct_norm = nn.LayerNorm(n_channels, eps=1e-6)  # for lstm on length-wise
 
     def forward(self, x):
         b, c, l = x.size()  # (B,C,L) (32,96,512)
@@ -76,14 +84,15 @@ class FreqEnhancedAttention(nn.Module):
 
         stack_dct = torch.stack(list, dim=1)
 
+        lr_weight = F.normalize()
         lr_weight = self.dct_norm(stack_dct)
         lr_weight = self.fc(lr_weight)
         lr_weight = self.dct_norm(lr_weight)
 
-        return x * lr_weight  # result
+        return x * lr_weight
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     input = torch.rand(8, 7, 96)
     block = FreqEnhancedAttention(96)
     result = block(input)

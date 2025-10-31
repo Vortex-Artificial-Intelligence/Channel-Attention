@@ -85,7 +85,9 @@ class MultiSEAttention(nn.Module):
     This module enhances the representational power of the standard SE block by incorporating multiple branches and adaptive style assignment.
     """
 
-    def __init__(self, n_dims: int, n_channels: int, reduction: int = 4, n_branches: int = 3) -> None:
+    def __init__(
+        self, n_dims: int, n_channels: int, reduction: int = 4, n_branches: int = 3
+    ) -> None:
         """
         Multi-Branch Squeeze-and-Excitation Attention Module for Time Series (1D) or Image (2D) Analysis.
 
@@ -101,7 +103,9 @@ class MultiSEAttention(nn.Module):
         self.n_dims = n_dims
 
         # Create the average pooling layer and activation function
-        self.avg_pool = nn.AdaptiveAvgPool2d(1) if n_dims == 2 else nn.AdaptiveAvgPool1d(1)
+        self.avg_pool = (
+            nn.AdaptiveAvgPool2d(1) if n_dims == 2 else nn.AdaptiveAvgPool1d(1)
+        )
         self.activation = nn.Sigmoid()
 
         # Store the reduction ratio, number of branches, and number of channels
@@ -111,17 +115,35 @@ class MultiSEAttention(nn.Module):
         new_channels = n_channels * n_branches
 
         # Layers for multi-branch excitation
-        self.fc = nn.Sequential(create_conv_layer(n_dims=n_dims, in_channels=new_channels, out_channels=new_channels // self.reduction, kernel_size=1, bias=True, groups=n_branches),
-                                 nn.ReLU(inplace=True),
-                                    create_conv_layer(n_dims=n_dims, in_channels=new_channels // self.reduction, out_channels=new_channels, kernel_size=1, bias=True, groups=n_branches))
+        self.fc = nn.Sequential(
+            create_conv_layer(
+                n_dims=n_dims,
+                in_channels=new_channels,
+                out_channels=new_channels // self.reduction,
+                kernel_size=1,
+                bias=True,
+                groups=n_branches,
+            ),
+            nn.ReLU(inplace=True),
+            create_conv_layer(
+                n_dims=n_dims,
+                in_channels=new_channels // self.reduction,
+                out_channels=new_channels,
+                kernel_size=1,
+                bias=True,
+                groups=n_branches,
+            ),
+        )
 
         # Style assignment layer
         self.style_assigner = nn.Linear(n_channels, n_branches, bias=False)
 
         # Repeat size for reshaping the output
         self.repeat_size = (1, 1) if n_dims == 2 else (1,)
-    
-    def _style_assignment(self, channel_mean: torch.Tensor, batch_size: int) -> torch.Tensor:
+
+    def _style_assignment(
+        self, channel_mean: torch.Tensor, batch_size: int
+    ) -> torch.Tensor:
         """
         Assign styles to each channel based on the channel mean.
 
@@ -149,7 +171,7 @@ class MultiSEAttention(nn.Module):
         batch_size, n_channels = avg_y.shape[:2]
 
         # Perform style assignment
-        style_assignment = self._style_assignment(avg_y, batch_size=batch_size) # B x N
+        style_assignment = self._style_assignment(avg_y, batch_size=batch_size)  # B x N
 
         # Multi-branch excitation
         avg_y = avg_y.repeat(1, self.n_branches, *self.repeat_size)
@@ -165,7 +187,9 @@ class MultiSEAttention(nn.Module):
             z = z * style_assignment[:, :, None, None]
 
         # [batch_size, n_channels, 1, 1]
-        z = torch.sum(z.view(batch_size, self.n_branches, n_channels, *self.repeat_size), dim=1) # B x C x 1 x 1
+        z = torch.sum(
+            z.view(batch_size, self.n_branches, n_channels, *self.repeat_size), dim=1
+        )  # B x C x 1 x 1
         z = self.activation(z)
 
         return x * z

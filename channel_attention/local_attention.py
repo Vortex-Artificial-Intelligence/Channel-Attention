@@ -4,37 +4,7 @@ import torch
 from torch import nn
 import torch.nn.functional as F
 
-
-def create_conv_layer(
-    n_dims: int,
-    in_channels: int,
-    out_channels: int,
-    kernel_size: int,
-    stride: int = 1,
-    padding: int = 0,
-    bias: bool = True,
-) -> nn.Module:
-    """Create a convolutional layer based on the number of dimensions."""
-    if n_dims == 1:
-        return nn.Conv1d(
-            in_channels=in_channels,
-            out_channels=out_channels,
-            kernel_size=kernel_size,
-            stride=stride,
-            padding=padding,
-            bias=bias,
-        )
-    elif n_dims == 2:
-        return nn.Conv2d(
-            in_channels=in_channels,
-            out_channels=out_channels,
-            kernel_size=kernel_size,
-            stride=stride,
-            padding=padding,
-            bias=bias,
-        )
-    else:
-        raise ValueError("Only 1D and 2D convolutional layers are supported.")
+from channel_attention.utils import create_conv_layer
 
 
 class SoftPooling(torch.nn.Module):
