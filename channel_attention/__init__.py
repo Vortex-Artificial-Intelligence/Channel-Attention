@@ -4,6 +4,7 @@ __all__ = [
     "ChannelAttention",
     "ConvBlockAttention",
     "EfficientChannelAttention",
+    "LocalAttention",
 ]
 
 __version__ = "0.0.1"
@@ -17,3 +18,5 @@ from .channel_attention import ChannelAttention
 from .conv_block_attention import ConvBlockAttention
 
 from .efficient_channel_attention import EfficientChannelAttention
+
+from .local_attention import LocalAttention

@@ -9,6 +9,7 @@ from channel_attention import (
     ChannelAttention,
     ConvBlockAttention,
     EfficientChannelAttention,
+    LocalAttention,
 )
 
 
@@ -126,6 +127,35 @@ class TestAttention(unittest.TestCase):
             output = eca_2d(x)
             self.assertEqual(output.shape, x.shape)
 
+    def test_LocalAttention(self) -> None:
+        """Test LocalAttention module for both 1D and 2D inputs."""
+        time_series_inputs, image_inputs = generate_test_inputs(
+            self.batch_size, self.n_channels, self.seq_len, self.height, self.width
+        )
+
+        # Test LocalAttention for time series (1D)
+        la_1d = LocalAttention(n_dims=1, n_channels=self.n_channels)
+        for x in time_series_inputs:
+            output = la_1d(x)
+            self.assertEqual(output.shape, x.shape)
+
+        # Test LocalAttention for images (2D)
+        la_2d = LocalAttention(n_dims=2, n_channels=self.n_channels)
+        for x in image_inputs:
+            output = la_2d(x)
+            self.assertEqual(output.shape, x.shape)
+
+        # Test LocalAttention for time series (1D) with speed module
+        la_1d = LocalAttention(n_dims=1, n_channels=self.n_channels, speed=True)
+        for x in time_series_inputs:
+            output = la_1d(x)
+            self.assertEqual(output.shape, x.shape)
+
+        # Test LocalAttention for images (2D) with speed module
+        la_2d = LocalAttention(n_dims=2, n_channels=self.n_channels, speed=True)
+        for x in image_inputs:
+            output = la_2d(x)
+            self.assertEqual(output.shape, x.shape)
 
 if __name__ == "__main__":
     unittest.main()
