@@ -27,7 +27,6 @@ def generate_test_inputs(
 
 
 class TestAttention(unittest.TestCase):
-
     batch_size = [1, 4, 16]
     n_channels = 64
     seq_len = 128

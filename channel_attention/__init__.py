@@ -1,4 +1,10 @@
-__all__ = ["SEAttention", "SpatialAttention", "ChannelAttention", "ConvBlockAttention"]
+__all__ = [
+    "SEAttention",
+    "SpatialAttention",
+    "ChannelAttention",
+    "ConvBlockAttention",
+    "EfficientChannelAttention",
+]
 
 __version__ = "0.0.1"
 
@@ -9,3 +15,5 @@ from .spatial_attention import SpatialAttention
 from .channel_attention import ChannelAttention
 
 from .conv_block_attention import ConvBlockAttention
+
+from .efficient_channel_attention import EfficientChannelAttention

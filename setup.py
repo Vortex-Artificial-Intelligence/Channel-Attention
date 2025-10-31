@@ -11,7 +11,13 @@ setuptools.setup(
     url="https://github.com/wwhenxuan/Channel-Attention",
     author="whenxuan",
     author_email="wwhenxuan@gmail.com",
-    keywords=["Deep Learning", "Neural Networks", "Attention Mechanism", "Channel Attention", "PyTorch"],
+    keywords=[
+        "Deep Learning",
+        "Neural Networks",
+        "Attention Mechanism",
+        "Channel Attention",
+        "PyTorch",
+    ],
     long_description=long_description,
     long_description_content_type="text/markdown",
     classifiers=[
