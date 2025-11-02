@@ -25,5 +25,15 @@ We only develop and test with PyTorch. Please make sure to install it from [PyTo
 | ------------------------------------------------------------ | ------------------------------------------- |
 | <div style="text-align: center;">  SEAttention<br/>[[paper]]()</div> | ![SEAttention](images/SEAttention.png)      |
 | <div style="text-align: center;">  ChannelAttention<br/>[[paper]]()</div> | ![SEAttention](images/ChannelAttention.png) |
-| <div style="text-align: center;">  ChannelAttention<br/>[[paper]]()</div> |                                             |
+| <div style="text-align: center;">  SpatialAttention<br/>[[paper]]()</div> |                                             |
+| <div style="text-align: center;">  ConvBlockAttention<br/>[[paper]]()</div> |                                             |
+| <div style="text-align: center;">  EfficientChannelAttention<br/>[[paper]]()</div> |                                             |
+| <div style="text-align: center;"><br />LocalAttention<br/>[[paper]]()</div> |                                             |
+| <div style="text-align: center;">  ConvBlockAttention<br/>[[paper]]()</div> |                                             |
+| <div style="text-align: center;">  ConvBlockAttention<br/>[[paper]]()</div> |                                             |
+| <div style="text-align: center;">  ConvBlockAttention<br/>[[paper]]()</div> |                                             |
+| <div style="text-align: center;">  ConvBlockAttention<br/>[[paper]]()</div> |                                             |
+| <div style="text-align: center;">  ConvBlockAttention<br/>[[paper]]()</div> |                                             |
+| <div style="text-align: center;">  ConvBlockAttention<br/>[[paper]]()</div> |                                             |
+| <div style="text-align: center;">  ConvBlockAttention<br/>[[paper]]()</div> |                                             |
 
