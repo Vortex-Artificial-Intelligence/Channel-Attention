@@ -34,19 +34,19 @@ We only develop and test with PyTorch. Please make sure to install it from [PyTo
 
 #### 1. [`SEAttention`](https://github.com/wwhenxuan/Channel-Attention/blob/main/channel_attention/squeeze_excitation.py): [[paper]]() The Squeeze-and-Excitation Attention with Global Average Pooling and Feed Forward Network.
 
-<div style="text-align: center;">
+<div align="center">
     <img width="80%" src="images/SEAttention.png">
 </div>
 
 #### 2. [`ChannelAttention`](https://github.com/wwhenxuan/Channel-Attention/blob/main/channel_attention/channel_attention.py): [[paper]]() The Channel Attention with Global Average Pooling and Global Max Pooling.
 
-<div style="text-align: center;">
+<div align="center">
     <img width="80%" src="images/ChannelAttention.png">
 </div>
 
 #### 3. [`SpatialAttention`](https://github.com/wwhenxuan/Channel-Attention/blob/main/channel_attention/spatial_attention.py): [[paper]]() The Spatial Attention with Global Average Pooling and Global Max Pooling.
 
-<div style="text-align: center;">
+<div align="center">
     <img width="80%" src="images/SpatialAttention.png">
 </div>
 
