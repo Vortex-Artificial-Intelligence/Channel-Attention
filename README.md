@@ -4,7 +4,7 @@ A plug-and-play channel attention mechanism module implemented in PyTorch.
 
 <div align="center">
 
-[Installation](#Installation) | [Usage](#Usage) | [Modules](#Modules) | [Blog](https://mp.weixin.qq.com/s/D6O5SBl2RYHdkiinV6UM8w)
+[Installation](#Installation) | [Usage](#Usage) | [Modules](#Modules) | [Blog](https://mp.weixin.qq.com/s/D6O5SBl2RYHdkiinV6UM8w) | [Experiments](#Experiments)
 </div>
 
 <div align="center">
@@ -42,4 +42,10 @@ We only develop and test with PyTorch. Please make sure to install it from [PyTo
     <img width="80%" src="images/ChannelAttention.png">
 </div>
 
-#### 3. [`ECAAttention`]()
+#### 3. [`SpatialAttention`](https://github.com/wwhenxuan/Channel-Attention/blob/main/channel_attention/spatial_attention.py): [[paper]]() The Spatial Attention with Global Average Pooling and Global Max Pooling.
+<div style="text-align: center;">
+    <img width="80%" src="images/SpatialAttention.png">
+</div>
+
+
+## Experiments <a id="Experiments"></a>
