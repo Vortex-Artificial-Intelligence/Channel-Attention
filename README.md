@@ -32,26 +32,14 @@ We only develop and test with PyTorch. Please make sure to install it from [PyTo
 
 ## Modules <a id="Modules"></a>
 
-#### [`SEAttention`](https://github.com/wwhenxuan/Channel-Attention/blob/main/channel_attention/squeeze_excitation.py): [[paper]]() The Squeeze-and-Excitation Attention.
-<img width="80%" align="middle" src="images/SEAttention.png">
+#### 1. [`SEAttention`](https://github.com/wwhenxuan/Channel-Attention/blob/main/channel_attention/squeeze_excitation.py): [[paper]]() The Squeeze-and-Excitation Attention with Global Average Pooling and Feed Forward Network.
+<div style="text-align: center;">
+    <img width="80%" src="images/SEAttention.png">
+</div>
 
+#### 2. [`ChannelAttention`](https://github.com/wwhenxuan/Channel-Attention/blob/main/channel_attention/channel_attention.py): [[paper]]() The Channel Attention with Global Average Pooling and Global Max Pooling.
+<div style="text-align: center;">
+    <img width="80%" src="images/ChannelAttention.png">
+</div>
 
-
-
-
-| Attention                                                    | Module Implementation Architecture          |
-| ------------------------------------------------------------ | ------------------------------------------- |
-| <div style="text-align: center;">  SEAttention<br/>[[paper]]()</div> | ![SEAttention](images/SEAttention.png)      |
-| <div style="text-align: center;">  ChannelAttention<br/>[[paper]]()</div> | ![SEAttention](images/ChannelAttention.png) |
-| <div style="text-align: center;">  SpatialAttention<br/>[[paper]]()</div> |                                             |
-| <div style="text-align: center;">  ConvBlockAttention<br/>[[paper]]()</div> |                                             |
-| <div style="text-align: center;">  EfficientChannelAttention<br/>[[paper]]()</div> |                                             |
-| <div style="text-align: center;"><br />LocalAttention<br/>[[paper]]()</div> |                                             |
-| <div style="text-align: center;">  ConvBlockAttention<br/>[[paper]]()</div> |                                             |
-| <div style="text-align: center;">  ConvBlockAttention<br/>[[paper]]()</div> |                                             |
-| <div style="text-align: center;">  ConvBlockAttention<br/>[[paper]]()</div> |                                             |
-| <div style="text-align: center;">  ConvBlockAttention<br/>[[paper]]()</div> |                                             |
-| <div style="text-align: center;">  ConvBlockAttention<br/>[[paper]]()</div> |                                             |
-| <div style="text-align: center;">  ConvBlockAttention<br/>[[paper]]()</div> |                                             |
-| <div style="text-align: center;">  ConvBlockAttention<br/>[[paper]]()</div> |                                             |
-
+#### 3. [`ECAAttention`]()
