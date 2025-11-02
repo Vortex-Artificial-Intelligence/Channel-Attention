@@ -11,3 +11,19 @@ pip install channel-attention
 
 We only develop and test with PyTorch. Please make sure to install it from [PyTorch official website](https://pytorch.org/get-started/locally/) based on your system configuration.
 
+## Usage
+
+
+
+
+
+## Modules
+
+
+
+| Attention                                                    | Module Implementation Architecture          |
+| ------------------------------------------------------------ | ------------------------------------------- |
+| <div style="text-align: center;">  SEAttention<br/>[[paper]]()</div> | ![SEAttention](images/SEAttention.png)      |
+| <div style="text-align: center;">  ChannelAttention<br/>[[paper]]()</div> | ![SEAttention](images/ChannelAttention.png) |
+| <div style="text-align: center;">  ChannelAttention<br/>[[paper]]()</div> |                                             |
+
