@@ -9,7 +9,7 @@ A plug-and-play channel attention mechanism module implemented in PyTorch.
 
 <div align="center">
 
-[![PyPI version](https://badge.fury.io/py/s2generator.svg)](https://pypi.org/project/s2generator/)  ![License](https://img.shields.io/github/license/wwhenxuan/PySDKit) [![Python](https://img.shields.io/badge/python-3.6+-blue?logo=python)](https://www.python.org/) [![PyTorch](https://img.shields.io/badge/PyTorch-2.0.1-blue)](https://pytorch.org/) [![Downloads](https://pepy.tech/badge/s2generator)](https://pepy.tech/project/s2generator) [![codestyle](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![PyPI version](https://badge.fury.io/py/s2generator.svg)](https://pypi.org/project/s2generator/)  ![License](https://img.shields.io/github/license/wwhenxuan/PySDKit) [![PyTorch](https://img.shields.io/badge/PyTorch-2.0.1-blue)](https://pytorch.org/) [![Downloads](https://pepy.tech/badge/s2generator)](https://pepy.tech/project/s2generator) [![codestyle](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 </div>
 
@@ -32,10 +32,10 @@ We only develop and test with PyTorch. Please make sure to install it from [PyTo
 
 ## Modules <a id="Modules"></a>
 
+#### [`SEAttention`](https://github.com/wwhenxuan/Channel-Attention/blob/main/channel_attention/squeeze_excitation.py): [[paper]]() The Squeeze-and-Excitation Attention.
+<img width="80%" align="middle" src="images/SEAttention.png">
 
 
-1. [`SEAttention`](https://github.com/wwhenxuan/Channel-Attention/blob/main/channel_attention/squeeze_excitation.py): [[paper]]() The Squeeze-and-Excitation Attention.
-   <img width="100%" align="middle" src="images/SEAttention.png">
 
 
 
