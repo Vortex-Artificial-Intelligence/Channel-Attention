@@ -65,6 +65,9 @@ class LocalModule(nn.Module):
     Local Module for Channel Attention based on Local Importance.
     This module applies point-wise convolution, soft pooling, and additional convolutional layers
     to compute local attention weights for refining feature representations.
+
+    Reference: "PlainUSR: Chasing Faster ConvNet for Efficient Super-Resolution"
+    URL: https://arxiv.org/abs/2409.13435
     """
 
     def __init__(self, n_dims: int, n_channels: int, hidden_channels: int = 16) -> None:
