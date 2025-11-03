@@ -10,6 +10,7 @@ from channel_attention import (
     ConvBlockAttention,
     EfficientChannelAttention,
     LocalAttention,
+    MultiSEAttention,
 )
 
 
@@ -155,6 +156,28 @@ class TestAttention(unittest.TestCase):
         la_2d = LocalAttention(n_dims=2, n_channels=self.n_channels, speed=True)
         for x in image_inputs:
             output = la_2d(x)
+            self.assertEqual(output.shape, x.shape)
+
+    def test_MultiSEAttention(self) -> None:
+        """Test MultiSEAttention module for both 1D and 2D inputs."""
+        time_series_inputs, image_inputs = generate_test_inputs(
+            self.batch_size, self.n_channels, self.seq_len, self.height, self.width
+        )
+
+        # Test MultiSEAttention for time series (1D)
+        mse_1d = MultiSEAttention(
+            n_dims=1, n_channels=self.n_channels, n_branches=3,
+        )
+        for x in time_series_inputs:
+            output = mse_1d(x)
+            self.assertEqual(output.shape, x.shape)
+
+        # Test MultiSEAttention for images (2D)
+        mse_2d = MultiSEAttention(
+            n_dims=2, n_channels=self.n_channels, n_branches=4,
+        )
+        for x in image_inputs:
+            output = mse_2d(x)
             self.assertEqual(output.shape, x.shape)
 
 
