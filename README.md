@@ -9,7 +9,7 @@ A plug-and-play channel attention mechanism module implemented in PyTorch.
 
 <div align="center">
 
-[![PyPI version](https://badge.fury.io/py/s2generator.svg)](https://pypi.org/project/s2generator/)  ![License](https://img.shields.io/github/license/wwhenxuan/PySDKit) [![PyTorch](https://img.shields.io/badge/PyTorch-2.0.1-blue)](https://pytorch.org/) [![Downloads](https://pepy.tech/badge/s2generator)](https://pepy.tech/project/s2generator) [![codestyle](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![PyPI version](https://badge.fury.io/py/channel-attention.svg)](https://pypi.org/project/channel-attention/)  ![License](https://img.shields.io/github/license/wwhenxuan/PySDKit) [![PyTorch](https://img.shields.io/badge/PyTorch-2.0.1-blue)](https://pytorch.org/) [![codestyle](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 </div>
 
@@ -19,7 +19,7 @@ A plug-and-play channel attention mechanism module implemented in PyTorch.
 You can install the package via pip:
 
 ```bash
-pip install channel-attention
+pip install channel-attention==0.0.1
 ```
 
 We only develop and test with PyTorch. Please make sure to install it from [PyTorch official website](https://pytorch.org/get-started/locally/) based on your system configuration.
