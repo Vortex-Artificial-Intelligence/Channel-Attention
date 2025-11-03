@@ -47,30 +47,29 @@ When the number of input channels is small, the channel attention mechanism is v
 
 ## Modules <a id="Modules"></a>
 
-#### 1. [`SEAttention`](https://github.com/wwhenxuan/Channel-Attention/blob/main/channel_attention/squeeze_excitation.py): [[paper]]() The Squeeze-and-Excitation Attention with Global Average Pooling and Feed Forward Network.
+#### 1. [`SEAttention`](https://github.com/wwhenxuan/Channel-Attention/blob/main/channel_attention/squeeze_excitation.py): [[paper]](https://arxiv.org/abs/1709.01507) The Squeeze-and-Excitation Attention with Global Average Pooling and Feed Forward Network.
 
 <div align="center">
     <img width="80%" src="images/SEAttention.png">
 </div>
 
-#### 2. [`ChannelAttention`](https://github.com/wwhenxuan/Channel-Attention/blob/main/channel_attention/channel_attention.py): [[paper]]() The Channel Attention with Global Average Pooling and Global Max Pooling.
+#### 2. [`ChannelAttention`](https://github.com/wwhenxuan/Channel-Attention/blob/main/channel_attention/channel_attention.py): [[paper]](https://arxiv.org/abs/1807.06521) The Channel Attention with Global Average Pooling and Global Max Pooling.
 
 <div align="center">
     <img width="80%" src="images/ChannelAttention.png">
 </div>
 
-#### 3. [`SpatialAttention`](https://github.com/wwhenxuan/Channel-Attention/blob/main/channel_attention/spatial_attention.py): [[paper]]() The Spatial Attention with Global Average Pooling and Global Max Pooling.
+#### 3. [`SpatialAttention`](https://github.com/wwhenxuan/Channel-Attention/blob/main/channel_attention/spatial_attention.py): [[paper]](https://arxiv.org/abs/1807.06521) The Spatial Attention with Global Average Pooling and Global Max Pooling.
 
 <div align="center">
     <img width="80%" src="images/SpatialAttention.png">
 </div>
 
-#### 4. [`ConvBlockAttention`](https://github.com/wwhenxuan/Channel-Attention/blob/main/channel_attention/spatial_attention.py): [[paper]]() The Convolutional Block Attention Module (CBAM) combining Channel Attention and Spatial Attention.
+#### 4. [`ConvBlockAttention`](https://github.com/wwhenxuan/Channel-Attention/blob/main/channel_attention/spatial_attention.py): [[paper]](https://arxiv.org/abs/1807.06521) The Convolutional Block Attention Module (CBAM) combining Channel Attention and Spatial Attention.
 
 <div align="center">
     <img width="80%" src="images/ConvBlockAttention.png">
 </div>
 
-
-
 ## Experiments <a id="Experiments"></a>
+
