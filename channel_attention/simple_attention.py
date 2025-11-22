@@ -6,20 +6,20 @@ import torch.nn as nn
 
 class SimpleAttentionModule(torch.nn.Module):
     """
-    A Simple, Parameter-Free Attention Module for Convolutional 
+    A Simple, Parameter-Free Attention Module for Convolutional
     Module for Time Series (1D) and Image (2D) Data.
-    
+
     Refernces: "SimAM: A Simple, Parameter-Free Attention Module for Convolutional Neural Networks" by Lingxiao Yang, Ru-Yuan Zhang, et al.
-    
+
     URL: https://proceedings.mlr.press/v139/yang21o.html
     """
-    
-    def __init__(self, n_dims: int, in_channels: int = None, e_lambda: Optional[float] = 1e-4) -> None:
-        """
-        
-        """
+
+    def __init__(
+        self, n_dims: int, in_channels: int = None, e_lambda: Optional[float] = 1e-4
+    ) -> None:
+        """ """
         super().__init__()
-        
+
         n_dims = n_dims
 
         self.activaton = nn.Sigmoid()
