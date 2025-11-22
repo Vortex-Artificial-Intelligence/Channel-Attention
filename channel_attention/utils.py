@@ -14,7 +14,7 @@ def create_conv_layer(
 ) -> nn.Module:
     """
     Create a convolutional layer based on the number of dimensions.
-    
+
     :param n_dims: The number of dimensions (1 or 2).
     :param in_channels: Number of input channels.
     :param out_channels: Number of output channels.
@@ -23,7 +23,7 @@ def create_conv_layer(
     :param padding: Padding added to both sides of the input. Default is 0.
     :param bias: If True, adds a learnable bias to the output. Default is True.
     :param groups: Number of blocked connections from input channels to output channels. Default is 1.
-    
+
     :return: A convolutional layer (nn.Conv1d or nn.Conv2d).
     """
     if n_dims == 1:

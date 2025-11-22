@@ -166,7 +166,9 @@ class TestAttention(unittest.TestCase):
 
         # Test MultiSEAttention for time series (1D)
         mse_1d = MultiSEAttention(
-            n_dims=1, n_channels=self.n_channels, n_branches=3,
+            n_dims=1,
+            n_channels=self.n_channels,
+            n_branches=3,
         )
         for x in time_series_inputs:
             output = mse_1d(x)
@@ -174,7 +176,9 @@ class TestAttention(unittest.TestCase):
 
         # Test MultiSEAttention for images (2D)
         mse_2d = MultiSEAttention(
-            n_dims=2, n_channels=self.n_channels, n_branches=4,
+            n_dims=2,
+            n_channels=self.n_channels,
+            n_branches=4,
         )
         for x in image_inputs:
             output = mse_2d(x)
